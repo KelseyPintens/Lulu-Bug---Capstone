@@ -1,0 +1,185 @@
+{
+    "plants": [{
+        "name": "Basil",
+        "water": "30-65",
+        "fertilizer": "100-1200",
+        "sunlight": "2000-8000",
+        "temperature": "50-105",
+        "image": "basil"
+    },{
+        "name": "Beets",
+        "water": "30-65",
+        "fertilizer": "100-1200",
+        "sunlight": "4000-55000",
+        "temperature": "50-105",
+        "image": "beet"
+    },{
+        "name": "Blueberries",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "50-86",
+        "image": "blueberry"
+    },{
+        "name": "Broccoli",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "50-86",
+        "image": "broccoli"
+    },{
+        "name": "Brussel Sprouts",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "50-86",
+        "image": "brusselsprout"
+    },{
+        "name": "Cabbage",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "50-77",
+        "image": "cabbage"
+    },{
+        "name": "Cantaloupes",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "3000-11000",
+        "temperature": "59-86",
+        "image": "cantalope"
+    },{
+        "name": "Carrots",
+        "water": "30-65",
+        "fertilizer": "100-1200",
+        "sunlight": "3000-11000",
+        "temperature": "50-77",
+        "image": "carrot"
+    },{
+        "name": "Cherry Tomatoes",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "50-86",
+        "image": "tomato"
+    },{
+        "name": "Corn",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "50-105",
+        "image": "corn"
+    },{
+        "name": "Cucumber",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "3000-11000",
+        "temperature": "59-86",
+        "image": "cucumber"
+    },{
+        "name": "Green Beans",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "59-86",
+        "image": "greenbean"
+    },{
+        "name": "Green Pepper",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "3000-11000",
+        "temperature": "59-86",
+        "image": "greenpepper"
+    },{
+        "name": "Kale",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "50-86",
+        "image": "kale"
+    },{
+        "name": "Lettuce",
+        "water": "30-65",
+        "fertilizer": "350-2000",
+        "sunlight": "3000-11000",
+        "temperature": "45-77",
+        "image": "lettuce"
+    },{
+        "name": "Onions",
+        "water": "30-65",
+        "fertilizer": "100-1200",
+        "sunlight": "4000-55000",
+        "temperature": "50-86",
+        "image": "onion"
+    },{
+        "name": "Potatoes",
+        "water": "30-65",
+        "fertilizer": "100-1200",
+        "sunlight": "4000-55000",
+        "temperature": "50-86",
+        "image": "potato"
+    },{
+        "name": "Pumpkins",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "50-86",
+        "image": "pumpkin"
+    },{
+        "name": "Radishes",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "45-86",
+        "image": "radish"
+    },{
+        "name": "Rosemary",
+        "water": "30-65",
+        "fertilizer": "100-1200",
+        "sunlight": "2000-8000",
+        "temperature": "50-105",
+        "image": "rosemary"
+    },{
+        "name": "Snow Pea",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "50-77",
+        "image": "snowpea"
+    },{
+        "name": "Spinach",
+        "water": "30-65",
+        "fertilizer": "350-2000",
+        "sunlight": "4000-55000",
+        "temperature": "50-86",
+        "image": "spinach"
+    },{
+        "name": "Strawberries",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "45-95",
+        "image": "strawberry"
+    },{
+        "name": "Sunflowers",
+        "water": "30-65",
+        "fertilizer": "350-2000",
+        "sunlight": "3000-11000",
+        "temperature": "59-105",
+        "image": "sunflower"
+    },{
+        "name": "Watermelons",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "59-86",
+        "image": "watermelon"
+    },{
+        "name": "Zucchini",
+        "water": "30-65",
+        "fertilizer": "450-3000",
+        "sunlight": "4000-55000",
+        "temperature": "50-86",
+        "image": "zucchini"
+    }]
+  }

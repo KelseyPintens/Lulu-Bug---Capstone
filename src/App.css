@@ -1,0 +1,83 @@
+body { 
+			background-image: url('./images/luluBackground.png') ;
+			background-position: center center;
+			background-repeat:  no-repeat;
+			background-attachment: fixed;
+      background-size:  cover;
+  
+}
+
+.deviceImages {
+  display:block;
+  margin:auto;
+}
+
+.const {
+  position: relative;
+  font-family: Arial;
+}
+
+.text-block {
+  position: absolute;
+  color: white;
+  margin-right: 62%;
+  margin-left: 38%;
+  bottom: 18%;
+  font-size: 1.25em;
+}
+
+.addPlant {
+  position: relative;
+  right: 7%;
+  margin-top: 6%;
+}
+
+.plantRow {
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+  display: flex;
+  flex-direction: row;
+  overflow: auto;
+}
+
+.fade {
+    background: transparent !important;
+}
+
+.modal-content {
+  width: 85% !important;
+  height: 600px !important;
+  border: none !important;
+  margin: auto;
+  background-image: url('./images/Modal.png') ;
+  background-position: center center;
+  background-size: cover;
+  padding: none;
+  
+}
+
+.modal-header {
+  border-bottom: none !important;
+}
+
+.modal-footer {
+  border-top: none !important;
+}
+
+.plantData {
+  max-height: calc(100vh - 200px);
+  overflow-y: auto;
+}
+
+.searchPlant {
+  width: 75%;
+  margin: auto;
+}
+
+.plantImage {
+  width: 15%;
+  height: 12%;
+  margin-left: 10%;
+  margin-top: 5%;
+}
