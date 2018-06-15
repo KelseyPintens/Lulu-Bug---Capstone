@@ -7,7 +7,9 @@ const app = firebase.initializeApp({
   authDomain: "lulu-bug.firebaseapp.com",
   databaseURL: "https://lulu-bug.firebaseio.com"
 });
+
 export const rebase = Rebase.createClass(app.database());
 
-// //add the authProvides your app needs: google, facebook, twitter, github,
 export const googleProvider = new firebase.auth.GoogleAuthProvider();
+
+export const user = firebase.auth().currentUser;
