@@ -1,23 +1,48 @@
-
 import React, { Component } from 'react';
-import { loginWithGoogle } from '../Authorization';
+import { loginWithGoogle, resetPassword } from '../userAuth';
+import {googleProvider} from '../FirebaseKey';
 
-class SignIn extends Component {
-
-    // Launches authentication via Google
-    authenticate(){
-        // Login via Google and launch updateIt function in App.js 
-        loginWithGoogle(this.props.userToApp)
-    }
-
-    render() {
-        return(
-            <div>
-                <button onClick={() => this.authenticate('google')}>Login</button>
-            </div>
-        )
-    }
-
+function setErrorMsg(error) {
+  return {
+    loginMessage: error
+  }
 }
 
-export default SignIn;
+class Login extends Component {
+    constructor(props){
+        super(props);
+    
+        this.state = {
+            loginMessage: null,
+        }
+    
+        this.handleSubmit = this.handleSubmit.bind(this);
+        this.resetPassword = this.resetPassword.bind(this);
+       
+      }
+
+    handleSubmit = (e) => {
+        e.preventDefault()
+        loginWithGoogle(googleProvider)
+        .catch((error) => {
+            this.setState(setErrorMsg('Invalid username/password.'))
+        })
+    }
+
+    resetPassword = () => {
+        resetPassword(this.email.value)
+        .then(() => this.setState(setErrorMsg(`Password reset email sent to ${this.email.value}.`)))
+        .catch((error) => this.setState(setErrorMsg(`Email address not found.`)))
+    }
+
+    
+  render () {
+    return (
+      <div className="col-sm-6 col-sm-offset-3">
+        <button className="login-button" onClick={this.handleSubmit}>Login With Google</button>
+      </div>
+    )
+  }
+}
+
+export default Login;

@@ -1,9 +1,8 @@
 import React, { Component } from 'react';
 import '../App.css';
 import addPlantIcon from '../images/luluAddPlant.png';
-import { Modal, ModalBody } from 'reactstrap';
+import { Modal } from 'reactstrap';
 import PlantData from './PlantData';
-
 
 
 class AddPlant extends Component {
@@ -18,12 +17,14 @@ class AddPlant extends Component {
     
       toggle() {
         this.setState({
-          modal: !this.state.modal
+          modal: !this.state.modal,
         });
       }
 
 
     render() {
+
+        // console.log("PLANT", h)
         return (
             <div className="col-2 addPlant" onClick={this.toggle}>
                 <img className="deviceImages" src={addPlantIcon} alt="" width="90%"/>
@@ -31,7 +32,7 @@ class AddPlant extends Component {
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <h4 className="mt-5 text-center">Add Plant</h4>
                     <input className="searchPlant" type="text" name="name" placeholder="Search Plants"/>
-                        <PlantData className="plantData p-5"/>
+                        <PlantData handleChange={this.props.handleChange} className="plantData p-5" user={this.props.user}/>
                 </Modal>
             </div>
         );
