@@ -95,3 +95,20 @@ body {
   
  padding: 5px;
 }
+
+    textarea
+    {
+        border: none;
+        display: block;
+        padding: 0;
+        height: 65%;
+        width: 85%;
+        background-image: url('./images/observationBG.png');
+        background-position: center center;
+        background-size: cover;
+    }
+
+    .observationModal {
+      margin-top: 20%;
+      padding: 0;
+    }
