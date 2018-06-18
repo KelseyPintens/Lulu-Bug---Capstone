@@ -58,16 +58,29 @@ class PlantData extends Component {
             <div className="plantData">
                 {Data.plants.map((x,index) => (
                     <div className="row" key={index}>
-                                <img className="plantImage" src={require(`../images/${x.image}.png`)} alt=""/>
+                                <img className="plantImageD" src={require(`../images/${x.image}.png`)} alt=""/>
                                 <div className="col">
                                     <p>{x.name}</p>
+                                    <div className="row">
+                                    <img src={require(`../images/luluWater.png`)} alt="" width="10%" height="10%"/>
                                     <p>{x.water}</p>
+                                    </div>
+                                    <div className="row">
+                                    <img src={require(`../images/luluFertilizer.png`)} alt="" width="10%" height="10%"/>
                                     <p>{x.fertilizer}</p>
+                                    </div>
+                                    {/* <p>{x.fertilizer}</p> */}
                                 </div>
                                 <div className="col">
                                     <div id={index} onClick={this.sendtoFirebase}>Add Plant</div>
+                                    <div className="row">
+                                    <img src={require(`../images/luluSunlight.png`)} alt="" width="10%" height="10%"/>
                                     <p>{x.sunlight}</p>
+                                    </div>
+                                    <div className="row">
+                                    <img src={require(`../images/luluTemperature.png`)} alt="" width="10%" height="10%"/>
                                     <p>{x.temperature}</p>
+                                    </div>
                                 </div>
                             </div>        
                 ))}

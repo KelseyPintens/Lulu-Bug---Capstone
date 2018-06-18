@@ -77,24 +77,40 @@ body {
   margin: auto;
 }
 
-.plantImage {
+.plantImageD {
   width: 15%;
   height: 12%;
   margin-left: 10%;
   margin-top: 5%;
 }
 
+.plantImage {
+  width: 65%;
+  height: auto;
+  display: block; /*for the img inside your div */ 
+margin: 0 auto; 
+  margin-top: 5%;
+}
+
+#example {
+ position: absolute;
+ top: 10%;
+ left: 28%; 
+  
+ padding: 5px;
+}
+
 #container {
   position: relative;    
 }
 
-#example {
+/* #example {
  position: absolute;
  top: 10px;
  left: 10px; 
   
  padding: 5px;
-}
+} */
 
     textarea
     {

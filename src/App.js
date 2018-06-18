@@ -66,7 +66,7 @@ class App extends Component {
           <Device/>
           <AddPlant user={this.state.userObj}/>
         </div>
-        <div className="plantRow mt-4">
+        <div className="mt-4">
           <Plant plantState={this.state.plant} user={this.state.userObj}/>
         </div>
         </div>

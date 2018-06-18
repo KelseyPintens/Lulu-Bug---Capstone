@@ -77,7 +77,7 @@ class Plant extends Component {
     render() {
 
         return (
-            <div >
+            <div className="plantRow">
                 {this.props.plantState.map((x,index) => (
 
                                     
