@@ -9,7 +9,7 @@ class DeviceButton extends Component {
                 <div className="const">
                     <img className="deviceImages" src={this.props.deviceImage} alt="" width="100%"/>
                     <div className="text-block">
-                        <p>75%</p>
+                        <p>{this.props.deviceStats}</p>
                     </div>
                 </div>
                 <div className="text-center mt-2">{this.props.deviceLabel}</div>

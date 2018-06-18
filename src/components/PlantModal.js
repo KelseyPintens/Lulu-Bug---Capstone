@@ -1,34 +1,28 @@
 import React, { Component } from 'react';
 import '../App.css';
-import { Modal } from 'reactstrap';
 import { rebase } from '../FirebaseKey';
+import AddObservation from './AddObservation';
+import EditObservation from './EditObservation';
 
 class PlantModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          modal: false,
           value: '', 
           observations: []
         };
     
-        this.toggle = this.toggle.bind(this);
       }
-    
-      toggle(e) {
-        this.setState({
-          modal: !this.state.modal,
-        });
-      }
+
 
       handleChange = (event) => {
         this.setState({value: event.target.value});
+        console.log(event.target.value)
       }
     
       handleSubmit = (event) => {
-        alert('Your favorite flavor is: ' + this.state.value);
         this.setState({observations: this.state.observations.concat([this.state.value]),
-        modal: false, value: ''});
+     value: ''});
         event.preventDefault(); 
       }
 
@@ -73,45 +67,47 @@ class PlantModal extends Component {
 
         
                 <div className="box col mx-2">
-                    <div id="example">
+                    <div>
                         <img className="plantImage" src={require(`../images/${this.props.plantInfo.image}.png`)} alt=""/>
                         <div className="col">
                             <p>{this.props.plantInfo.name}</p>
-                            <p>{this.props.plantInfo.water}</p>
-                            <p>{this.props.plantInfo.fertilizer}</p>
+                            <div className="row">
+                                    <img src={require(`../images/luluWater.png`)} alt="" width="10%" height="10%"/>
+                                    <p>{this.props.plantInfo.water}</p>
+                            </div>
+                            <div className="row">
+                                    <img src={require(`../images/luluFertilizer.png`)} alt="" width="10%" height="10%"/>
+                                    <p>{this.props.plantInfo.fertilizer}</p>
+                            </div>
                         </div>
                         <div className="col">
-                            <p>{this.props.plantInfo.sunlight}</p>
-                            <p>{this.props.plantInfo.temperature}</p>
+                        <div className="row">
+                                    <img src={require(`../images/luluSunlight.png`)} alt="" width="10%" height="10%"/>
+                                    <p>{this.props.plantInfo.sunlight}</p>
+                            </div>
+                            <div className="row">
+                                    <img src={require(`../images/luluTemperature.png`)} alt="" width="10%" height="10%"/>
+                                    <p>{this.props.plantInfo.temperature}</p>
+                            </div>
                         </div>
                         <div id={this.props.plantInfo.number} onClick={this.props.removePeople}>delete</div>
                         <div>{this.props.plantInfo.name} Journal</div>
-                        <div onClick={this.toggle}>Add to Journal</div>
+                        <AddObservation handleSubmit={this.handleSubmit} name={this.props.plantInfo.name} value={this.state.value} handleChange={this.handleChange}/>
                         <div>
                         {this.state.observations.map((x,index) => (
                                     
-                            <div className="box col-3 mx-2" key={index}>
+                            <div className="box mx-2" key={index}>
                                 <div>{x}</div>
-                                <div id="edit" onClick={this.toggle}>edit</div>
+                                <EditObservation user={this.props.user} number={this.props.plantInfo.number} index={{index}} x={{x}} handleSubmit={this.handleSubmit} name={this.props.plantInfo.name} value={this.state.value} handleChange={this.handleChange}/>
                                 <div id={index} onClick={this.removePeople}>delete</div>
-                                <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+                                {/* <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
 
-                                </Modal>
+                                </Modal> */}
                             </div>        
                         ))}
                         </div>
 
-                            <Modal id="observation" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                            <div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                    How is your {this.props.plantInfo.name} doing?  Record your observations here.
-                    <textarea value={this.state.value} onChange={this.handleChange} className="observationModal mx-auto"></textarea>
-                    </label>
-                    <input type="submit" value="Submit" />
-                </form>
-                </div>
-                            </Modal>
+
                     </div>
 
                 </div>   
