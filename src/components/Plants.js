@@ -3,6 +3,8 @@ import '../App.css';
 import plantLabel from '../images/luluLabel.png';
 import { Modal } from 'reactstrap';
 import { rebase } from '../FirebaseKey';
+import PlantModal from './PlantModal';
+
 
 class Plant extends Component {
     // constructor(props) {
@@ -93,7 +95,7 @@ class Plant extends Component {
                      <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
 
                     <div className="box col mx-2">
-                       <PlantModal modalProp={this.state.modal} plantProp={this.state.plant} plantInfo={this.state.modalState} removePeople={this.removePeople}/>
+                       <PlantModal user={this.props.user} modalProp={this.state.modal} plantProp={this.state.plant} plantInfo={this.state.modalState} removePeople={this.removePeople}/>
 
                     </div>        
                     </Modal> 
@@ -102,37 +104,5 @@ class Plant extends Component {
     }
 }
 
-
-class PlantModal extends Component {
-    render(){
-        if (this.props.modalProp !== false) {
-    return(
-                <div className="box col mx-2">
-                    <div id="example">
-                    <img className="plantImage" src={require(`../images/${this.props.plantInfo.image}.png`)} alt=""/>
-                    <div className="col">
-                        <p>{this.props.plantInfo.name}</p>
-                        <p>{this.props.plantInfo.water}</p>
-                        <p>{this.props.plantInfo.fertilizer}</p>
-                    </div>
-                    <div className="col">
-                        <p>{this.props.plantInfo.sunlight}</p>
-                        <p>{this.props.plantInfo.temperature}</p>
-                    </div>
-                    <div id={this.props.plantInfo.number} onClick={this.props.removePeople}>delete</div>
-                    <div>{this.props.plantInfo.name} Journal</div>
-                    <div>Add to Journal</div>
-                    </div>
-
-                </div>     
-    )} else{
-        return (
-            <div >
-
-            </div>
-        );
-    }
-  }
-}
 
 export default Plant;
