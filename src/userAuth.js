@@ -1,20 +1,20 @@
 import { googleProvider, rebase }  from './FirebaseKey'
 
-export function auth (email, pw) {
-  return rebase.initializedApp.auth().createUserWithEmailAndPassword(email, pw)
-    .then((data) => {
-      console.log("data is", data);
-      saveUser(data);
-    })
-}
+// export function auth (email, pw) {
+//   return rebase.initializedApp.auth().createUserWithEmailAndPassword(email, pw)
+//     .then((data) => {
+//       console.log("data is", data);
+//       saveUser(data);
+//     })
+// }
 
 export function logout () {
   return rebase.initializedApp.auth().signOut()
 }
 
-export function login (email, pw) {
-  return rebase.initializedApp.auth().signInWithEmailAndPassword(email, pw)
-}
+// export function login (email, pw) {
+//   return rebase.initializedApp.auth().signInWithEmailAndPassword(email, pw)
+// }
 
 export function loginWithGoogle () {
   return rebase.initializedApp.auth().signInWithPopup(googleProvider)
