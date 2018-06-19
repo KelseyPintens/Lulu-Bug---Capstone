@@ -9,7 +9,11 @@ class PlantModal extends Component {
         super(props);
         this.state = {
           value: '', 
-          observations: []
+          observations: [],
+          water: 25,
+          fertilizer: 400,
+          temperature: 75,
+          sunlight: 4000
         };
     
       }
@@ -60,7 +64,11 @@ class PlantModal extends Component {
 
 
     render(){
-
+        const water = this.state.water;
+        const fertilizer = this.state.fertilizer;
+        const temperature = this.state.temperature;
+        const sunlight = this.state.sunlight;
+console.log("waterlow",this.props.plantInfo.waterlow)
 
         if (this.props.modalProp !== false) {
     return(
@@ -73,22 +81,34 @@ class PlantModal extends Component {
                             <p>{this.props.plantInfo.name}</p>
                             <div className="row">
                                     <img src={require(`../images/luluWater.png`)} alt="" width="10%" height="10%"/>
-                                    <p>{this.props.plantInfo.water}</p>
+                                    <p>{this.props.plantInfo.waterlow} - {this.props.plantInfo.waterhigh}</p>
                             </div>
                             <div className="row">
                                     <img src={require(`../images/luluFertilizer.png`)} alt="" width="10%" height="10%"/>
-                                    <p>{this.props.plantInfo.fertilizer}</p>
+                                    <p>{this.props.plantInfo.fertilizerlow} - {this.props.plantInfo.fertilizerhigh}</p>
                             </div>
                         </div>
                         <div className="col">
                         <div className="row">
                                     <img src={require(`../images/luluSunlight.png`)} alt="" width="10%" height="10%"/>
-                                    <p>{this.props.plantInfo.sunlight}</p>
+                                    <p>{this.props.plantInfo.sunlightlow} - {this.props.plantInfo.sunlighthigh}</p>
                             </div>
                             <div className="row">
                                     <img src={require(`../images/luluTemperature.png`)} alt="" width="10%" height="10%"/>
-                                    <p>{this.props.plantInfo.temperature}</p>
+                                    <p>{this.props.plantInfo.temperaturelow} - {this.props.plantInfo.temperaturehigh}</p>
                             </div>
+                        </div>
+                                                <div>
+                        {water < this.props.plantInfo.waterlow ? (<img src={require(`../images/luluWaterLow.png`)} alt="" width="10%" height="10%"/>) : water > this.props.plantInfo.waterhigh ? (<img src={require(`../images/luluWaterHigh.png`)} alt="" width="10%" height="10%"/>) : (<img src={require(`../images/luluWaterIcon.png`)} alt="" width="10%" height="10%"/>)}
+                        </div>
+                        <div>
+                        {fertilizer < this.props.plantInfo.fertililzerlow ? (<img src={require(`../images/luluFertilizerLow.png`)} alt="" width="10%" height="10%"/>) : fertilizer > this.props.plantInfo.fertilizerhigh ? (<img src={require(`../images/luluFertilizerHigh.png`)} alt="" width="10%" height="10%"/>) : (<img src={require(`../images/luluFertilizerIcon.png`)} alt="" width="10%" height="10%"/>)}
+                        </div>
+                        <div>
+                        {sunlight < this.props.plantInfo.sunlightlow ? (<img src={require(`../images/luluSunlightLow.png`)} alt="" width="10%" height="10%"/>) : sunlight > this.props.plantInfo.sunlighthigh ? (<img src={require(`../images/luluSunlightHigh.png`)} alt="" width="10%" height="10%"/>) : (<img src={require(`../images/luluSunlightIcon.png`)} alt="" width="10%" height="10%"/>)}
+                        </div>
+                        <div>
+                        {temperature < this.props.plantInfo.temperaturelow ? (<img src={require(`../images/luluTemperatureLow.png`)} alt="" width="10%" height="10%"/>) : temperature > this.props.plantInfo.temperaturehigh ? (<img src={require(`../images/luluTemperatureHigh.png`)} alt="" width="10%" height="10%"/>) : (<img src={require(`../images/luluTemperatureIcon.png`)} alt="" width="10%" height="10%"/>)}
                         </div>
                         <div id={this.props.plantInfo.number} onClick={this.props.removePeople}>delete</div>
                         <div>{this.props.plantInfo.name} Journal</div>

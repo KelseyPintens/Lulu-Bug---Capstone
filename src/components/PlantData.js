@@ -36,10 +36,14 @@ class PlantData extends Component {
         console.log("e", e.target.id)
         let plantInfo = {
               name: Data.plants[e.target.id].name,
-              water: Data.plants[e.target.id].water,
-              fertilizer: Data.plants[e.target.id].fertilizer,
-              sunlight: Data.plants[e.target.id].sunlight,
-              temperature: Data.plants[e.target.id].temperature,
+              waterlow: Data.plants[e.target.id].waterlow,
+              fertilizerlow: Data.plants[e.target.id].fertilizerlow,
+              sunlightlow: Data.plants[e.target.id].sunlightlow,
+              temperaturelow: Data.plants[e.target.id].temperaturelow,
+              waterhigh: Data.plants[e.target.id].waterhigh,
+              fertilizerhigh: Data.plants[e.target.id].fertilizerhigh,
+              sunlighthigh: Data.plants[e.target.id].sunlighthigh,
+              temperaturehigh: Data.plants[e.target.id].temperaturehigh,
               image: Data.plants[e.target.id].image
         }
 
@@ -63,23 +67,23 @@ class PlantData extends Component {
                                     <p>{x.name}</p>
                                     <div className="row">
                                     <img src={require(`../images/luluWater.png`)} alt="" width="10%" height="10%"/>
-                                    <p>{x.water}</p>
+                                    <p>{x.waterlow} - {x.waterhigh}</p>
                                     </div>
                                     <div className="row">
                                     <img src={require(`../images/luluFertilizer.png`)} alt="" width="10%" height="10%"/>
-                                    <p>{x.fertilizer}</p>
+                                    <p>{x.fertilizerlow} - {x.fertilizerhigh}</p>
                                     </div>
-                                    {/* <p>{x.fertilizer}</p> */}
+
                                 </div>
                                 <div className="col">
                                     <div id={index} onClick={this.sendtoFirebase}>Add Plant</div>
                                     <div className="row">
                                     <img src={require(`../images/luluSunlight.png`)} alt="" width="10%" height="10%"/>
-                                    <p>{x.sunlight}</p>
+                                    <p>{x.sunlightlow} - {x.sunlighthigh}</p>
                                     </div>
                                     <div className="row">
                                     <img src={require(`../images/luluTemperature.png`)} alt="" width="10%" height="10%"/>
-                                    <p>{x.temperature}</p>
+                                    <p>{x.temperaturelow} - {x.temperaturehigh}</p>
                                     </div>
                                 </div>
                             </div>        

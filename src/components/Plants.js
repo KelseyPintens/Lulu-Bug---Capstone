@@ -13,7 +13,11 @@ class Plant extends Component {
         state = {
           modal: false,
           modalState: [],
-          plant: []
+          plant: [],
+          water: 25,
+          fertilizer: 400,
+          temperature: 75,
+          sunlight: 4000
         };
 
 
@@ -43,10 +47,14 @@ class Plant extends Component {
             console.log("plant",this.props.plantState[e.currentTarget.id].name)
         let plantInfo = {
         name: this.props.plantState[e.currentTarget.id].name,
-        water: this.props.plantState[e.currentTarget.id].water,
-        fertilizer: this.props.plantState[e.currentTarget.id].fertilizer,
-        sunlight: this.props.plantState[e.currentTarget.id].sunlight,
-        temperature: this.props.plantState[e.currentTarget.id].temperature,
+        waterlow: this.props.plantState[e.currentTarget.id].waterlow,
+        fertilizerlow: this.props.plantState[e.currentTarget.id].fertilizerlow,
+        sunlightlow: this.props.plantState[e.currentTarget.id].sunlightlow,
+        temperaturelow: this.props.plantState[e.currentTarget.id].temperaturelow,
+        waterhigh: this.props.plantState[e.currentTarget.id].waterhigh,
+        fertilizerhigh: this.props.plantState[e.currentTarget.id].fertilizerhigh,
+        sunlighthigh: this.props.plantState[e.currentTarget.id].sunlighthigh,
+        temperaturehigh: this.props.plantState[e.currentTarget.id].temperaturehigh,
         image: this.props.plantState[e.currentTarget.id].image,
         number: e.currentTarget.id }
 
@@ -75,7 +83,10 @@ class Plant extends Component {
 
       
     render() {
-
+        const water = this.state.water;
+        const fertilizer = this.state.fertilizer;
+        const temperature = this.state.temperature;
+        const sunlight = this.state.sunlight;
         return (
             <div className="plantRow">
                 {this.props.plantState.map((x,index) => (
@@ -89,9 +100,23 @@ class Plant extends Component {
                             <p>{x.name}</p>
                         </div>
                         </div>
+                        <div>
+                        {water < x.waterlow ? (<img src={require(`../images/luluWaterLow.png`)} alt="" width="10%" height="10%"/>) : water > x.waterhigh ? (<img src={require(`../images/luluWaterHigh.png`)} alt="" width="10%" height="10%"/>) : (<img src={require(`../images/luluWaterIcon.png`)} alt="" width="10%" height="10%"/>)}
+                        </div>
+                        <div>
+                        {fertilizer < x.fertililzerlow ? (<img src={require(`../images/luluFertilizerLow.png`)} alt="" width="10%" height="10%"/>) : fertilizer > x.fertilizerhigh ? (<img src={require(`../images/luluFertilizerHigh.png`)} alt="" width="10%" height="10%"/>) : (<img src={require(`../images/luluFertilizerIcon.png`)} alt="" width="10%" height="10%"/>)}
+                        </div>
+                        <div>
+                        {sunlight < x.sunlightlow ? (<img src={require(`../images/luluSunlightLow.png`)} alt="" width="10%" height="10%"/>) : sunlight > x.sunlighthigh ? (<img src={require(`../images/luluSunlightHigh.png`)} alt="" width="10%" height="10%"/>) : (<img src={require(`../images/luluSunlightIcon.png`)} alt="" width="10%" height="10%"/>)}
+                        </div>
+                        <div>
+                        {temperature < x.temperaturelow ? (<img src={require(`../images/luluTemperatureLow.png`)} alt="" width="10%" height="10%"/>) : temperature > x.temperaturehigh ? (<img src={require(`../images/luluTemperatureHigh.png`)} alt="" width="10%" height="10%"/>) : (<img src={require(`../images/luluTemperatureIcon.png`)} alt="" width="10%" height="10%"/>)}
+                        </div>
 
                     </div>        
                 ))}
+
+                
                      <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
 
                     <div className="box col mx-2">
