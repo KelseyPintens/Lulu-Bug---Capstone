@@ -8,7 +8,8 @@ class EditObservation extends Component {
         super(props);
         this.state = {
           modal: false,
-          observations: [this.props.x.x.entry],
+          valueWater: [this.props.x.x.valueWater],
+          valueFertilizer: [this.props.x.x.valueFertilizer],
           image: [this.props.x.x.image],
           newimage: '',
           observationUpdate: []
@@ -21,7 +22,15 @@ class EditObservation extends Component {
         this.setState({
           modal: !this.state.modal,
         });
-        console.log("this is x", this.props.x)
+        if (this.state.modal === false) {
+          this.setState({
+            valueWater: this.props.x.x.valueWater,
+            valueFertilizer: this.props.x.x.valueFertilizer,
+            newimage: '',
+            image: this.props.x.x.image
+
+          });
+        }
 
       }
 
@@ -29,25 +38,28 @@ class EditObservation extends Component {
         this.setState({modal: false});
       }
 
-      handleChange = (event) => {
-        this.setState({observations: event.target.value});
+      handleChangeWater = (event) => {
+        this.setState({valueWater: event.target.value});
+        console.log(event.target.value)
+        event.preventDefault();
+      }
+
+      handleChangeFertilizer = (event) => {
+        this.setState({valueFertilizer: event.target.value});
         console.log(event.target.value)
         event.preventDefault();
       }
 
       handleSubmit = (event) => {
         let observationInfo = {
-          entry: this.state.observations,
+          valueWater: this.state.valueWater,
+          valueFertilizer: this.state.valueFertilizer,
           image: this.state.image
     }
 
         this.setState({observationUpdate: observationInfo,
             });
                event.preventDefault(); 
-      }
-
-      delete = () => {
-        this.setState({observations: ''});
       }
 
       deleteImage = () => {
@@ -60,7 +72,6 @@ class EditObservation extends Component {
 
 
     }  
-
 
     syncing = () => {
         this.ref = rebase.syncState(`users/${this.props.user}/plants/${this.props.number}/observation/${this.props.index.index}`, {
@@ -100,12 +111,16 @@ class EditObservation extends Component {
 <img id="target" src={this.state.newimage} alt="" width="10%" height="10%"/>
 </div>
                             <div onClick={this.deleteImage}>Delete</div>
+                            <div>How is your {this.props.name} doing?  Record your observations here.</div>
                 <form onSubmit={this.handleSubmit}>
                     <label>
-                    How is your {this.props.name} doing?  Record your observations here.
-                    <textarea value={this.state.observations} onChange={this.handleChange} className="observationModal mx-auto"></textarea>
+                    Did you water the plant?
+                    <textarea value={this.state.valueWater} onChange={this.handleChangeWater} className="observationModal mx-auto"></textarea>
                     </label>
-                    <div onClick={this.delete}>Delete</div>
+                    <label>
+                    Did you Fertilize the plant?
+                    <textarea value={this.state.valueFertilizer} onChange={this.handleChangeFertilizer} className="observationModal mx-auto"></textarea>
+                    </label>
                     <input type="submit" value="Submit" onClick={this.closeModal}/>
                 </form>
                 </div>

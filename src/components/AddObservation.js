@@ -39,10 +39,16 @@ class AddObservation extends Component {
 <input id="file-upload" type="file" onChange={this.props.onImageChange.bind(this)} />
 <img id="target" src={this.props.image} alt=""/>
 </div>
+
+<div>How is your {this.props.name} doing?  Record your observations here.</div>
                 <form onSubmit={this.props.handleSubmit}>
                     <label>
-                    How is your {this.props.name} doing?  Record your observations here.
-                    <textarea value={this.props.value} onChange={this.props.handleChange} className="observationModal mx-auto"></textarea>
+                    Did you water the plant?
+                    <textarea value={this.props.valueWater} onChange={this.props.handleChangeWater} className="observationModal mx-auto"></textarea>
+                    </label>
+                    <label>
+                    Did you Fertilize the plant?
+                    <textarea value={this.props.valueFertilizer} onChange={this.props.handleChangeFertilizer} className="observationModal mx-auto"></textarea>
                     </label>
                     <input type="submit" value="Submit" onClick={this.closeModal}/>
                 </form>
