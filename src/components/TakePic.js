@@ -56,8 +56,11 @@ class Pic extends Component {
 // </ReactFileReader>
 //   <img src={this.state.pic} alt="" width="10%" height="10%"/>
 // </div>
-<div>
-<input type="file" onChange={this.onImageChange.bind(this)} className="filetype" id="group_image"/>
+<div><label htmlFor="file-upload" className="custom-file-upload">
+    <i className="fa fa-cloud-upload"></i> Add Picture
+</label>
+<input id="file-upload" type="file" onChange={this.onImageChange.bind(this)} />
+{/* <input type="file" onChange={this.onImageChange.bind(this)} className="filetype" id="group_image"/> */}
 <img id="target" src={this.state.image}/>
 </div>
 
