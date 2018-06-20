@@ -8,7 +8,8 @@ class PlantModal extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          value: '', 
+          valueWater: '',
+          valueFertilizer: '',
           observations: [],
           water: 25,
           fertilizer: 400,
@@ -20,16 +21,23 @@ class PlantModal extends Component {
       }
 
 
-      handleChange = (event) => {
-        this.setState({value: event.target.value});
-        console.log(event.target.value)
+      handleChangeWater = (event) => {
+        this.setState({valueWater: event.target.value});
+        console.log(event.target.value);
+      }
+      handleChangeFertilizer = (event) => {
+        this.setState({valueFertilizer: event.target.value});
+        console.log(event.target.value);
       }
     
       handleSubmit = (event) => {
+          
         let observationInfo = {
-            entry: this.state.value,
+            valueWater: this.state.valueWater,
+            valueFertilizer: this.state.valueFertilizer,
             image: this.state.image
       }
+      console.log("observationInfo", observationInfo)
         this.setState({observations: this.state.observations.concat([observationInfo]),
      image: '', value: ''});
 
@@ -71,6 +79,7 @@ class PlantModal extends Component {
             reader.readAsDataURL(event.target.files[0]);
         }
     }
+      
 
 
     render(){
@@ -122,13 +131,12 @@ console.log("waterlow",this.props.plantInfo.waterlow)
                         </div>
                         <div id={this.props.plantInfo.number} onClick={this.props.removePeople}>delete</div>
                         <div>{this.props.plantInfo.name} Journal</div>
-                        <AddObservation image={this.state.image} onImageChange={this.onImageChange} handleSubmit={this.handleSubmit} name={this.props.plantInfo.name} value={this.state.value} handleChange={this.handleChange}/>
+                        <AddObservation image={this.state.image} onImageChange={this.onImageChange} handleSubmit={this.handleSubmit} name={this.props.plantInfo.name} valueWater={this.state.valueWater} valueFertilizer={this.state.valueFertilizer} handleChangeWater={this.handleChangeWater} handleChangeFertilizer={this.handleChangeFertilizer}/>
                         <div>
                         {this.state.observations.map((x, index) => (
                                     
                             <div className="box mx-2" key={index}>
                             <img src={x.image} alt="" width="10%" height="10%"/>
-                                <div>{x.entry}</div>
                                 <EditObservation user={this.props.user} number={this.props.plantInfo.number} index={{index}} x={{x}} handleSubmit={this.handleSubmit} name={this.props.plantInfo.name} value={this.state.value} handleChange={this.handleChange}/>
                                 <div id={index} onClick={this.removePeople}>delete</div>
                                 {/* <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
