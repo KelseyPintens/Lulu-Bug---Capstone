@@ -7,7 +7,7 @@ class Pic extends Component {
     constructor(props) {
         super(props);
         this.state = {
-            pic: ''
+            image: ''
         };
     
       }
@@ -17,20 +17,30 @@ class Pic extends Component {
     //     console.log(files);
     //   }
 
-    previewFile = () => {
-        var preview = document.querySelector('img');
-        var file    = document.querySelector('input[type=file]').files[0];
-        var reader  = new FileReader();
+    // previewFile = () => {
+    //     var preview = document.querySelector('img');
+    //     var file    = document.querySelector('input[type=file]').files[0];
+    //     var reader  = new FileReader();
       
-        reader.addEventListener("load", function () {
-          preview.src = reader.result;
-        }, false);
+    //     reader.addEventListener("load", function () {
+    //       preview.src = reader.result;
+    //     }, false);
       
-        if (file) {
-          reader.readAsDataURL(file);
-          console.log("File", file)
+    //     if (file) {
+    //       reader.readAsDataURL(file);
+    //       console.log("File", file)
+    //     }
+    //   }
+
+    onImageChange = (event) => {
+        if (event.target.files && event.target.files[0]) {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                this.setState({image: e.target.result});
+            };
+            reader.readAsDataURL(event.target.files[0]);
         }
-      }
+    }
 
     render() {
         return (
@@ -43,13 +53,16 @@ class Pic extends Component {
 // </ReactFileReader>
 //   <img src={this.state.pic} alt="" width="10%" height="10%"/>
 // </div>
+<div>
+<input type="file" onChange={this.onImageChange.bind(this)} className="filetype" id="group_image"/>
+<img id="target" src={this.state.image}/>
+</div>
 
+//             <div className="col ml-3">
+// <input type="file" onchange={this.previewFile}/>
+// <img src="" height="200" alt="Image preview..."/>
 
-            <div className="col ml-3">
-<input type="file" onchange={this.previewFile}/>
-<img src="" height="200" alt="Image preview..."/>
-
-            </div>
+//             </div>
         );
     }
 }
