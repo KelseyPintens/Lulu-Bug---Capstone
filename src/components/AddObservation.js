@@ -33,6 +33,12 @@ class AddObservation extends Component {
 
                             <Modal id="observation" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                             <div>
+                            <div><label htmlFor="file-upload" className="custom-file-upload">
+    <i className="fa fa-cloud-upload"></i> Add Picture
+</label>
+<input id="file-upload" type="file" onChange={this.props.onImageChange.bind(this)} />
+<img id="target" src={this.props.image} alt=""/>
+</div>
                 <form onSubmit={this.props.handleSubmit}>
                     <label>
                     How is your {this.props.name} doing?  Record your observations here.

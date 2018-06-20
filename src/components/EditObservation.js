@@ -8,7 +8,9 @@ class EditObservation extends Component {
         super(props);
         this.state = {
           modal: false,
-          observations: [this.props.x.x],
+          observations: [this.props.x.x.entry],
+          image: [this.props.x.x.image],
+          newimage: '',
           observationUpdate: []
         };
     
@@ -34,9 +36,22 @@ class EditObservation extends Component {
       }
 
       handleSubmit = (event) => {
-        this.setState({observationUpdate: this.state.observations,
-            value: ''});
+        let observationInfo = {
+          entry: this.state.observations,
+          image: this.state.image
+    }
+
+        this.setState({observationUpdate: observationInfo,
+            });
                event.preventDefault(); 
+      }
+
+      delete = () => {
+        this.setState({observations: ''});
+      }
+
+      deleteImage = () => {
+        this.setState({image: '', newimage: ''});
       }
 
             componentDidMount() {
@@ -55,6 +70,17 @@ class EditObservation extends Component {
         });
     } 
 
+    onImageChange = (event) => {
+      if (event.target.files && event.target.files[0]) {
+          let reader = new FileReader();
+          reader.onload = (e) => {
+              this.setState({image: e.target.result,
+              newimage: e.target.result});
+          };
+          reader.readAsDataURL(event.target.files[0]);
+      }
+  }
+
 
     render(){
 
@@ -66,11 +92,20 @@ class EditObservation extends Component {
 
                             <Modal id="observation" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                             <div>
+                            <img src={this.state.image} alt="" width="10%" height="10%"/>
+                            <div><label htmlFor="file-upload" className="custom-file-upload">
+    <i className="fa fa-cloud-upload"></i> Edit
+</label>
+<input id="file-upload" type="file" onChange={this.onImageChange.bind(this)} />
+<img id="target" src={this.state.newimage} alt="" width="10%" height="10%"/>
+</div>
+                            <div onClick={this.deleteImage}>Delete</div>
                 <form onSubmit={this.handleSubmit}>
                     <label>
                     How is your {this.props.name} doing?  Record your observations here.
                     <textarea value={this.state.observations} onChange={this.handleChange} className="observationModal mx-auto"></textarea>
                     </label>
+                    <div onClick={this.delete}>Delete</div>
                     <input type="submit" value="Submit" onClick={this.closeModal}/>
                 </form>
                 </div>
