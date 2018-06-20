@@ -14,6 +14,7 @@ class Pic extends Component {
 
     handleFiles = files => {
         this.setState({pic: files});
+        console.log(files);
       }
 
     // previewFile = () => {
