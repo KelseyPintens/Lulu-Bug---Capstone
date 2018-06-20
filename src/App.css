@@ -4,17 +4,33 @@ body {
 			background-repeat:  no-repeat;
 			background-attachment: fixed;
       background-size:  cover;
+      
   
 }
+
+/* device stats */
 
 .deviceImages {
   display:block;
   margin:auto;
 }
 
+.deviceMargin {
+  margin-top: 3%;
+}
+
 .const {
   position: relative;
-  font-family: Arial;
+  font-family: 'Cabin';
+}
+
+.outdoorData {
+  font-family: 'Cabin';
+  font-size: 1.25em;
+  color: #585858;
+  margin-left: 8%;
+  margin-top: .5%
+
 }
 
 .text-block {
