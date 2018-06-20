@@ -12,7 +12,6 @@ class DeviceButton extends Component {
                         <p>{this.props.deviceStats}</p>
                     </div>
                 </div>
-                <div className="text-center mt-2">{this.props.deviceLabel}</div>
 
             </div>
         );

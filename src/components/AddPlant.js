@@ -26,9 +26,10 @@ class AddPlant extends Component {
 
         // console.log("PLANT", h)
         return (
-            <div className="col-2 addPlant" onClick={this.toggle}>
-                <img className="deviceImages" src={addPlantIcon} alt="" width="90%"/>
-                <h6 className="text-center">Add Plant</h6>
+            <div className="col-2 addPlant">
+            <div onClick={this.toggle}>
+                <img className="deviceImages" src={addPlantIcon} alt="" width="100%"/>
+            </div>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <h4 className="mt-5 text-center">Add Plant</h4>
                     <input className="searchPlant" type="text" name="name" placeholder="Search Plants"/>
