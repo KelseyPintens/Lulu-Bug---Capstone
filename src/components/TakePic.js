@@ -4,9 +4,16 @@ import ReactFileReader from 'react-file-reader';
 
 
 class Pic extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            pic: ''
+        };
+    
+      }
 
     handleFiles = files => {
-        console.log(files)
+        this.setState({pic: files});
       }
 
     // previewFile = () => {
@@ -26,9 +33,16 @@ class Pic extends Component {
     render() {
         return (
 
+            <div>
+
             <ReactFileReader handleFiles={this.handleFiles}>
   <button className='btn'>Upload</button>
+
 </ReactFileReader>
+  <img src={this.state.pic} alt="" width="10%" height="10%"/>
+</div>
+
+
 //             <div className="col ml-3">
 // <input type="file" onchange={this.previewFile}/>
 // <img src="" height="200" alt="Image preview..."/>
