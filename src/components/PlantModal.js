@@ -3,6 +3,7 @@ import '../App.css';
 import { rebase } from '../FirebaseKey';
 import AddObservation from './AddObservation';
 import EditObservation from './EditObservation';
+import Pic from './TakePic';
 
 class PlantModal extends Component {
     constructor(props) {
@@ -112,6 +113,7 @@ console.log("waterlow",this.props.plantInfo.waterlow)
                         </div>
                         <div id={this.props.plantInfo.number} onClick={this.props.removePeople}>delete</div>
                         <div>{this.props.plantInfo.name} Journal</div>
+                        <Pic />
                         <AddObservation handleSubmit={this.handleSubmit} name={this.props.plantInfo.name} value={this.state.value} handleChange={this.handleChange}/>
                         <div>
                         {this.state.observations.map((x,index) => (
