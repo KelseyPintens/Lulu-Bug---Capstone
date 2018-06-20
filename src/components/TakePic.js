@@ -12,43 +12,44 @@ class Pic extends Component {
     
       }
 
-    handleFiles = files => {
-        this.setState({pic: files});
-        console.log(files);
-      }
-
-    // previewFile = () => {
-    //     var preview = document.querySelector('img');
-    //     var file    = document.querySelector('input[type=file]').files[0];
-    //     var reader  = new FileReader();
-      
-    //     reader.addEventListener("load", function () {
-    //       preview.src = reader.result;
-    //     }, false);
-      
-    //     if (file) {
-    //       reader.readAsDataURL(file);
-    //     }
+    // handleFiles = files => {
+    //     this.setState({pic: files});
+    //     console.log(files);
     //   }
+
+    previewFile = () => {
+        var preview = document.querySelector('img');
+        var file    = document.querySelector('input[type=file]').files[0];
+        var reader  = new FileReader();
+      
+        reader.addEventListener("load", function () {
+          preview.src = reader.result;
+        }, false);
+      
+        if (file) {
+          reader.readAsDataURL(file);
+          console.log("File", file)
+        }
+      }
 
     render() {
         return (
 
-            <div>
+//             <div>
 
-            <ReactFileReader handleFiles={this.handleFiles}>
-  <button className='btn'>Upload</button>
+//             <ReactFileReader handleFiles={this.handleFiles}>
+//   <button className='btn'>Upload</button>
 
-</ReactFileReader>
-  <img src={this.state.pic} alt="" width="10%" height="10%"/>
-</div>
+// </ReactFileReader>
+//   <img src={this.state.pic} alt="" width="10%" height="10%"/>
+// </div>
 
 
-//             <div className="col ml-3">
-// <input type="file" onchange={this.previewFile}/>
-// <img src="" height="200" alt="Image preview..."/>
+            <div className="col ml-3">
+<input type="file" onchange={this.previewFile}/>
+<img src="" height="200" alt="Image preview..."/>
 
-//             </div>
+            </div>
         );
     }
 }
