@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import '../App.css';
-import ReactFileReader from 'react-file-reader';
 
 
 class Pic extends Component {
@@ -12,26 +11,6 @@ class Pic extends Component {
     
       }
 
-    // handleFiles = files => {
-    //     this.setState({pic: files});
-    //     console.log(files);
-    //   }
-
-    // previewFile = () => {
-    //     var preview = document.querySelector('img');
-    //     var file    = document.querySelector('input[type=file]').files[0];
-    //     var reader  = new FileReader();
-      
-    //     reader.addEventListener("load", function () {
-    //       preview.src = reader.result;
-    //     }, false);
-      
-    //     if (file) {
-    //       reader.readAsDataURL(file);
-    //       console.log("File", file)
-    //     }
-    //   }
-
     onImageChange = (event) => {
         if (event.target.files && event.target.files[0]) {
             let reader = new FileReader();
@@ -40,7 +19,6 @@ class Pic extends Component {
             };
             reader.readAsDataURL(event.target.files[0]);
         }
-        console.log("IMAGE", this.state.image)
     }
 
     
@@ -48,27 +26,12 @@ class Pic extends Component {
     render() {
         return (
 
-//             <div>
-
-//             <ReactFileReader handleFiles={this.handleFiles}>
-//   <button className='btn'>Upload</button>
-
-// </ReactFileReader>
-//   <img src={this.state.pic} alt="" width="10%" height="10%"/>
-// </div>
 <div><label htmlFor="file-upload" className="custom-file-upload">
     <i className="fa fa-cloud-upload"></i> Add Picture
 </label>
 <input id="file-upload" type="file" onChange={this.onImageChange.bind(this)} />
-{/* <input type="file" onChange={this.onImageChange.bind(this)} className="filetype" id="group_image"/> */}
-<img id="target" src={this.state.image}/>
+<img id="target" src={this.state.image} alt=""/>
 </div>
-
-//             <div className="col ml-3">
-// <input type="file" onchange={this.previewFile}/>
-// <img src="" height="200" alt="Image preview..."/>
-
-//             </div>
         );
     }
 }

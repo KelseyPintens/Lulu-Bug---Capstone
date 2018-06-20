@@ -3,7 +3,6 @@ import '../App.css';
 import { rebase } from '../FirebaseKey';
 import AddObservation from './AddObservation';
 import EditObservation from './EditObservation';
-import Pic from './TakePic';
 
 class PlantModal extends Component {
     constructor(props) {
@@ -14,7 +13,8 @@ class PlantModal extends Component {
           water: 25,
           fertilizer: 400,
           temperature: 75,
-          sunlight: 4000
+          sunlight: 4000,
+          image: ''
         };
     
       }
@@ -26,8 +26,13 @@ class PlantModal extends Component {
       }
     
       handleSubmit = (event) => {
-        this.setState({observations: this.state.observations.concat([this.state.value]),
-     value: ''});
+        let observationInfo = {
+            entry: this.state.value,
+            image: this.state.image
+      }
+        this.setState({observations: this.state.observations.concat([observationInfo]),
+     image: '', value: ''});
+
         event.preventDefault(); 
       }
 
@@ -57,11 +62,15 @@ class PlantModal extends Component {
         this.setState({observations: array});
       }
 
-    // updateObservation = () => {
-    //     this.setState({
-    //         observations: update(this.state.observations, {1: {name: {$set: 'updated field name'}}})
-    //       })
-    // }
+      onImageChange = (event) => {
+        if (event.target.files && event.target.files[0]) {
+            let reader = new FileReader();
+            reader.onload = (e) => {
+                this.setState({image: e.target.result});
+            };
+            reader.readAsDataURL(event.target.files[0]);
+        }
+    }
 
 
     render(){
@@ -113,13 +122,13 @@ console.log("waterlow",this.props.plantInfo.waterlow)
                         </div>
                         <div id={this.props.plantInfo.number} onClick={this.props.removePeople}>delete</div>
                         <div>{this.props.plantInfo.name} Journal</div>
-                        <Pic />
-                        <AddObservation handleSubmit={this.handleSubmit} name={this.props.plantInfo.name} value={this.state.value} handleChange={this.handleChange}/>
+                        <AddObservation image={this.state.image} onImageChange={this.onImageChange} handleSubmit={this.handleSubmit} name={this.props.plantInfo.name} value={this.state.value} handleChange={this.handleChange}/>
                         <div>
-                        {this.state.observations.map((x,index) => (
+                        {this.state.observations.map((x, index) => (
                                     
                             <div className="box mx-2" key={index}>
-                                <div>{x}</div>
+                            <img src={x.image} alt="" width="10%" height="10%"/>
+                                <div>{x.entry}</div>
                                 <EditObservation user={this.props.user} number={this.props.plantInfo.number} index={{index}} x={{x}} handleSubmit={this.handleSubmit} name={this.props.plantInfo.name} value={this.state.value} handleChange={this.handleChange}/>
                                 <div id={index} onClick={this.removePeople}>delete</div>
                                 {/* <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
