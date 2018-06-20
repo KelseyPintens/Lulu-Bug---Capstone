@@ -40,7 +40,10 @@ class Pic extends Component {
             };
             reader.readAsDataURL(event.target.files[0]);
         }
+        console.log("IMAGE", this.state.image)
     }
+
+    
 
     render() {
         return (
