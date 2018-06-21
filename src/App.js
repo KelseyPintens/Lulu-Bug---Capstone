@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import './App.css';
-import Device from './components/Device';
 import './index.css';
 import AddPlant from './components/AddPlant';
 import Plant from './components/Plants';
@@ -63,10 +62,10 @@ class App extends Component {
       return (
         <div>
         <div className="row">
-          <Device/>
+          {/* <Device/> */}
           <AddPlant user={this.state.userObj}/>
         </div>
-        <div className="deviceMargin">
+        <div>
           <Plant plantState={this.state.plant} user={this.state.userObj}/>
         </div>
         </div>

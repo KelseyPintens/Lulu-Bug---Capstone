@@ -16,7 +16,7 @@ body {
 }
 
 .deviceMargin {
-  margin-top: 3%;
+  margin-top: 2%;
 }
 
 .const {
@@ -28,24 +28,38 @@ body {
   font-family: 'Cabin';
   font-size: 1.25em;
   color: #585858;
-  margin-left: 8%;
-  margin-top: .5%
+  margin-left: 7%;
 
+}
+
+.waterText {
+  font-family: 'Roboto';
+  font-weight: 300;
+  color: blue;
+  font-size: 2em;
+}
+
+.fertilizerText {
+  font-family: 'Roboto';
+  font-weight: 300;
+  margin-bottom: 0;
+  margin-top: 10%;
 }
 
 .text-block {
   position: absolute;
   color: white;
   margin-right: 62%;
-  margin-left: 38%;
+  margin-left: 28%;
+  margin-bottom: 5%;
   bottom: 18%;
   font-size: 1.25em;
 }
 
 .addPlant {
   position: relative;
-  right: 7%;
-  margin-top: 6%;
+  left: 78%;
+  margin-top: 3%;
 }
 
 .plantRow {
@@ -55,6 +69,7 @@ body {
   display: flex;
   flex-direction: row;
   overflow: auto;
+  margin-top: 18%
 }
 
 .fade {
@@ -105,15 +120,33 @@ body {
   height: auto;
   display: block; /*for the img inside your div */ 
 margin: 0 auto; 
-  margin-top: 5%;
+margin-top: 3%
 }
 
 #example {
  position: absolute;
  top: 10%;
  left: 28%; 
-  
- padding: 5px;
+ padding: 3px;
+}
+
+.plantName {
+  text-align: center;
+  font-family: 'Cabin';
+  color: #585858;
+  margin-top: 2%;
+  margin-bottom: 3%;
+}
+
+.iconRow {
+  display: flex;
+  flex-direction: row;
+  margin-left: 15%;
+}
+
+.sizeDiv {
+  width: 18%;
+  margin: .125em
 }
 
 #container {
