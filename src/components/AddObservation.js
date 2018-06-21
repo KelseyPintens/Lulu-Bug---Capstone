@@ -46,11 +46,11 @@ class AddObservation extends Component {
 <br/><img id="target" className="previewPic" width="45%" src={this.props.image} alt=""/>
 </div>
                     <label>
-                    Did you water the {this.props.name} today?
+                    Did you add water to the {this.props.name} today?
                     <input value={this.props.valueWater} onChange={this.props.handleChangeWater} className="inputVal" type="text" name="name"/>
                     </label>
                     <label> 
-                    Did you fertilize the {this.props.name} today?
+                    Did you add fertilize to the {this.props.name} today?
                     <input value={this.props.valueFertilizer} onChange={this.props.handleChangeFertilizer} className="inputVal" type="text" name="name"/>
                     </label>
                     <label>
