@@ -10,6 +10,10 @@ class EditObservation extends Component {
           modal: false,
           valueWater: [this.props.x.x.valueWater],
           valueFertilizer: [this.props.x.x.valueFertilizer],
+          valueDate: [this.props.x.x.valueDate],
+          valueSunlight: [this.props.x.x.valueSunlight],
+          valueTemperature: [this.props.x.x.valueTemperature],
+          valueObservations: [this.props.x.x.valueObservations],
           image: [this.props.x.x.image],
           newimage: '',
           observationUpdate: []
@@ -26,6 +30,10 @@ class EditObservation extends Component {
           this.setState({
             valueWater: this.props.x.x.valueWater,
             valueFertilizer: this.props.x.x.valueFertilizer,
+            valueDate: this.props.x.x.valueDate,
+            valueSunlight: this.props.x.x.valueSunlight,
+            valueTemperature: this.props.x.x.valueTemperature,
+            valueObservations: this.props.x.x.valueObservations,
             newimage: '',
             image: this.props.x.x.image
 
@@ -40,25 +48,51 @@ class EditObservation extends Component {
 
       handleChangeWater = (event) => {
         this.setState({valueWater: event.target.value});
-        console.log(event.target.value)
-        event.preventDefault();
+        console.log(event.target.value);
       }
-
       handleChangeFertilizer = (event) => {
         this.setState({valueFertilizer: event.target.value});
-        console.log(event.target.value)
-        event.preventDefault();
+        console.log(event.target.value);
       }
 
+      handleChangeDate = (event) => {
+        this.setState({valueDate: event.target.value});
+        console.log(event.target.value);
+      }
+
+      handleChangeSunlight = (event) => {
+        this.setState({valueSunlight: event.target.value});
+        console.log(event.target.value);
+      }
+
+      handleChangeTemperature = (event) => {
+        this.setState({valueTemperature: event.target.value});
+        console.log(event.target.value);
+      }
+
+      handleChangeObservations = (event) => {
+        this.setState({valueObservations: event.target.value});
+        console.log(event.target.value);
+      }
       handleSubmit = (event) => {
         let observationInfo = {
           valueWater: this.state.valueWater,
           valueFertilizer: this.state.valueFertilizer,
+          valueDate: this.state.valueDate,
+          valueSunlight: this.state.valueSunlight,
+          valueTemperature: this.state.valueTemperature,
+          valueObservations: this.state.valueObservations,
           image: this.state.image
     }
 
         this.setState({observationUpdate: observationInfo,
-            });
+             image: '', 
+     valueWater: '', 
+     valueDate: '', 
+     valueFertilizer: '', 
+     valueTemperature: '',
+     valueSunlight: '',
+     valueObservations: ''     });
                event.preventDefault(); 
       }
 
@@ -98,30 +132,47 @@ class EditObservation extends Component {
     return(
 
         
-                <div className="box col mx-2">
-                <div onClick={this.toggle}>Edit</div>
+                <div>
+                <div className="editButton" onClick={this.toggle}>Edit</div>
 
                             <Modal id="observation" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                            <div>
-                            <img src={this.state.image} alt="" width="10%" height="10%"/>
-                            <div><label htmlFor="file-upload" className="custom-file-upload">
-    <i className="fa fa-cloud-upload"></i> Edit
+                            <div className="plantDetailScroll">
+
+                            
+                            
+                <form onSubmit={this.handleSubmit}>
+                <label className="mt-4">
+                    Today's Date:                    </label> <br/>
+                    <input value={this.state.valueDate} onChange={this.handleChangeDate} className="inputDate" type="text" name="name"/>
+                    <div className="how text-center">How are your {this.props.name} doing?</div>
+                    <div><label htmlFor="file-upload" className="custom-file-upload text-center">
+    <i className="fa fa-cloud-upload center"></i> Edit Picture
 </label>
 <input id="file-upload" type="file" onChange={this.onImageChange.bind(this)} />
-<img id="target" src={this.state.newimage} alt="" width="10%" height="10%"/>
+<br/><img id="target" className="previewPic" width="45%" src={this.state.image} alt=""/>
 </div>
-                            <div onClick={this.deleteImage}>Delete</div>
-                            <div>How is your {this.props.name} doing?  Record your observations here.</div>
-                <form onSubmit={this.handleSubmit}>
-                    <label>
-                    Did you water the plant?
-                    <textarea value={this.state.valueWater} onChange={this.handleChangeWater} className="observationModal mx-auto"></textarea>
+<div className="deleteImage" onClick={this.deleteImage}>Delete</div>
+                  <label>
+                    Did you water the {this.props.name} today?
+                    <input value={this.state.valueWater} onChange={this.handleChangeWater} className="inputVal" type="text" name="name"/>
+                    </label>
+                    <label> 
+                    Did you fertilize the {this.props.name} today?
+                    <input value={this.state.valueFertilizer} onChange={this.handleChangeFertilizer} className="inputVal" type="text" name="name"/>
                     </label>
                     <label>
-                    Did you Fertilize the plant?
-                    <textarea value={this.state.valueFertilizer} onChange={this.handleChangeFertilizer} className="observationModal mx-auto"></textarea>
+                    Is the temperature outside today good for {this.props.name}?
+                    <input value={this.state.valueTemperature} onChange={this.handleChangeTemperature} className="inputVal" type="text" name="name"/>
                     </label>
-                    <input type="submit" value="Submit" onClick={this.closeModal}/>
+                    <label>
+                    Are the {this.props.name} getting enough sunlight?
+                    <input value={this.state.valueSunlight} onChange={this.handleChangeSunlight} className="inputVal" type="text" name="name"/>
+                    </label>
+                    <label>
+                    Write more about your {this.props.name} here.
+                    <textarea value={this.state.valueObservations} onChange={this.handleChangeObservations} className="observationModal"></textarea>
+                    </label>
+                    <input className="submitStyle" type="submit" value="Submit" onClick={this.closeModal}/>
                 </form>
                 </div>
                             </Modal>
