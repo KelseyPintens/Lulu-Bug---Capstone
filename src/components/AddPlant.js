@@ -9,7 +9,8 @@ class AddPlant extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          modal: false
+          modal: false,
+          search: ''
         };
     
         this.toggle = this.toggle.bind(this);
@@ -19,6 +20,12 @@ class AddPlant extends Component {
         this.setState({
           modal: !this.state.modal,
         });
+      }
+
+      search = (e) => {
+        this.setState({
+            search: e.target.value
+          });
       }
 
 
@@ -32,8 +39,8 @@ class AddPlant extends Component {
             </div>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <h4 className="addPlantText mt-5 text-center">Add a plant to your garden! </h4>
-                    <input className="searchPlant" type="text" name="name" placeholder="Search Plants"/>
-                    <PlantData handleChange={this.props.handleChange} className="plantData p-5" user={this.props.user}/>
+                    <input id="search" className="searchPlant" type="text" name="name" placeholder="Search Plants" onKeyUp={this.search}/>
+                    <PlantData search={this.state.search} handleChange={this.props.handleChange} className="plantData p-5" user={this.props.user}/>
                 </Modal>
             </div>
         );
