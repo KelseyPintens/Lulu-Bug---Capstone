@@ -133,7 +133,7 @@ console.log("waterlow",this.props.plantInfo.waterlow)
                         <div className="row">
                         <div className="col-2 px-0">
                             <img className="plantImage2" src={require(`../images/${this.props.plantInfo.image}.png`)} alt=""/>
-                            <div className="deletePlant" id={this.props.plantInfo.number} onClick={this.props.removePeople}>Delete Plant</div>
+                            <div className="deletePlant two" id={this.props.plantInfo.number} onClick={this.props.removePeople}>Delete Plant</div>
                         </div>
                         <div className="col">
                         <h4 className="addPlantText2 mt-3">{this.props.plantInfo.name} Need:</h4>
