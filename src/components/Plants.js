@@ -92,26 +92,29 @@ class Plant extends Component {
                 {this.props.plantState.map((x,index) => (
 
                                     
-                    <div id={index} onClick={this.toggle}  className="box col-3 mx-2" key={index}>
+                    <div id={index} onClick={this.toggle}  className="col-3 mx-2" key={index}>
                         <img src={plantLabel} alt="" width="130%"/>
                         <div id="example">
                         <img className="plantImage" src={require(`../images/${x.image}.png`)} alt=""/>
-                        <div className="col">
-                            <p>{x.name}</p>
-                        </div>
-                        </div>
                         <div>
-                        {water < x.waterlow ? (<img src={require(`../images/luluWaterLow.png`)} alt="" width="10%" height="10%"/>) : water > x.waterhigh ? (<img src={require(`../images/luluWaterHigh.png`)} alt="" width="10%" height="10%"/>) : (<img src={require(`../images/luluWaterIcon.png`)} alt="" width="10%" height="10%"/>)}
+                            <p className="plantName">{x.name}</p>
                         </div>
-                        <div>
-                        {fertilizer < x.fertililzerlow ? (<img src={require(`../images/luluFertilizerLow.png`)} alt="" width="10%" height="10%"/>) : fertilizer > x.fertilizerhigh ? (<img src={require(`../images/luluFertilizerHigh.png`)} alt="" width="10%" height="10%"/>) : (<img src={require(`../images/luluFertilizerIcon.png`)} alt="" width="10%" height="10%"/>)}
+                        <div className="iconRow">
+                            <div className="sizeDiv">
+                            {water < x.waterlow ? (<img src={require(`../images/luluWaterLow.png`)} alt="" width="100%"/>) : water > x.waterhigh ? (<img src={require(`../images/luluWaterHigh.png`)} alt="" width="100%"/>) : (<img src={require(`../images/luluWaterIcon.png`)} alt="" width="100%"/>)}
+                            </div>
+                            <div className="sizeDiv">
+                            {fertilizer < x.fertililzerlow ? (<img src={require(`../images/luluFertilizerLow.png`)} alt="" width="100%"/>) : fertilizer > x.fertilizerhigh ? (<img src={require(`../images/luluFertilizerHigh.png`)} alt="" width="100%"/>) : (<img src={require(`../images/luluFertilizerIcon.png`)} alt="" width="100%"/>)}
+                            </div>
+                            <div className="sizeDiv">
+                            {sunlight < x.sunlightlow ? (<img src={require(`../images/luluSunlightLow.png`)} alt="" width="100%"/>) : sunlight > x.sunlighthigh ? (<img src={require(`../images/luluSunlightHigh.png`)} alt="" width="100%"/>) : (<img src={require(`../images/luluSunlightIcon.png`)} alt="" width="100%"/>)}
+                            </div>
+                            <div className="sizeDiv">
+                            {temperature < x.temperaturelow ? (<img src={require(`../images/luluTemperatureLow.png`)} alt="" width="100%"/>) : temperature > x.temperaturehigh ? (<img src={require(`../images/luluTemperatureHigh.png`)} alt="" width="100%"/>) : (<img src={require(`../images/luluTemperatureIcon.png`)} alt="" width="100%"/>)}
+                            </div>
                         </div>
-                        <div>
-                        {sunlight < x.sunlightlow ? (<img src={require(`../images/luluSunlightLow.png`)} alt="" width="10%" height="10%"/>) : sunlight > x.sunlighthigh ? (<img src={require(`../images/luluSunlightHigh.png`)} alt="" width="10%" height="10%"/>) : (<img src={require(`../images/luluSunlightIcon.png`)} alt="" width="10%" height="10%"/>)}
                         </div>
-                        <div>
-                        {temperature < x.temperaturelow ? (<img src={require(`../images/luluTemperatureLow.png`)} alt="" width="10%" height="10%"/>) : temperature > x.temperaturehigh ? (<img src={require(`../images/luluTemperatureHigh.png`)} alt="" width="10%" height="10%"/>) : (<img src={require(`../images/luluTemperatureIcon.png`)} alt="" width="10%" height="10%"/>)}
-                        </div>
+
 
                     </div>        
                 ))}
