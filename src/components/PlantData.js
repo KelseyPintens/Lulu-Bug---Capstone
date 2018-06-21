@@ -8,7 +8,9 @@ class PlantData extends Component {
     constructor(props) {
         super(props);
         this.state = {
-          plant: []
+          plant: [],
+          search: '',
+          searchState: false
         }
   
       }
@@ -53,6 +55,19 @@ class PlantData extends Component {
 
       };
 
+      componentWillReceiveProps(){
+          if(this.props.searchState !== '') {
+              this.setState({
+                search: this.props.search,
+                searchState: true
+              })
+          }else{
+              this.setState({
+                  searchState: false
+              })
+          }
+      }
+
 
 
     render() {
@@ -60,36 +75,37 @@ class PlantData extends Component {
         return (
 
             <div className="plantData">
-                {Data.plants.map((x,index) => (
-                    <div className="addPlantDiv row" key={index}>
-                                <div className="col">
-                                <p className="addPlantName">{x.name}</p>
-                                <img id={index} onClick={this.sendtoFirebase} className="plantImageD" src={require(`../images/${x.image}.png`)} alt=""/>
-                                </div>
-                                {/* <div className="col">
-                                    <div className="row">
-                                    <img src={require(`../images/luluWaterIcon.png`)} alt="" width="20%" height="20%"/>
-                                    <p>{x.waterlow} - {x.waterhigh}</p>
-                                    </div>
-                                    <div className="row">
-                                    <img src={require(`../images/luluFertilizerIcon.png`)} alt="" width="20%" height="20%"/>
-                                    <p>{x.fertilizerlow} - {x.fertilizerhigh}</p>
-                                    </div>
+                {Data.plants.map((x,index) => {
+                    if(this.state.searchState) {
+                        var xLower = x.name.toLowerCase();
+                        var lowerSearch = this.state.search.toLowerCase();
+                        if(xLower.includes(lowerSearch)){
+                            return(<div key={index}>                    
+                            <div className="addPlantDiv row" key={index}>
+                            <div className="col">
+                            <p className="addPlantName">{x.name}</p>
+                            <img id={index} onClick={this.sendtoFirebase} className="plantImageD" src={require(`../images/${x.image}.png`)} alt=""/>
+                            </div>
+                            <div className="col">
+                                <div className="addPlantButton" id={index} onClick={this.sendtoFirebase}>+ Add Plant</div>
+                            </div>
+                        </div> </div> )
+                        }
 
-                                </div> */}
-                                <div className="col">
-                                    <div className="addPlantButton" id={index} onClick={this.sendtoFirebase}>+ Add Plant</div>
-                                    {/* <div className="row">
-                                    <img src={require(`../images/luluSunlightIcon.png`)} alt="" width="20%" height="20%"/>
-                                    <p>{x.sunlightlow} - {x.sunlighthigh}</p>
-                                    </div>
-                                    <div className="row">
-                                    <img src={require(`../images/luluTemperatureIcon.png`)} alt="" width="20%" height="20%"/>
-                                    <p>{x.temperaturelow} - {x.temperaturehigh}</p>
-                                    </div> */}
-                                </div>
-                            </div>       
-                ))}
+                    } else {
+                        return(<div key={index}>                    
+                            <div className="addPlantDiv row" key={index}>
+                            <div className="col">
+                            <p className="addPlantName">{x.name}</p>
+                            <img id={index} onClick={this.sendtoFirebase} className="plantImageD" src={require(`../images/${x.image}.png`)} alt=""/>
+                            </div>
+                            <div className="col">
+                                <div className="addPlantButton" id={index} onClick={this.sendtoFirebase}>+ Add Plant</div>
+                            </div>
+                        </div> </div> )
+                    }
+      
+                })}
             </div>
         );
     }
