@@ -28,29 +28,44 @@ class AddObservation extends Component {
     return(
 
         
-                <div className="box col mx-2">
-                <div onClick={this.toggle}>Add to Journal</div>
+                <div>
+                <div className="addJournal" onClick={this.toggle}>Add to Journal</div>
 
                             <Modal id="observation" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                            <div>
-                            <div><label htmlFor="file-upload" className="custom-file-upload">
-    <i className="fa fa-cloud-upload"></i> Add Picture
+                            <div className="plantDetailScroll">
+
+                <form onSubmit={this.props.handleSubmit}>
+                    <label className="mt-4">
+                    Today's Date:                    </label> <br/>
+                    <input value={this.props.valueDate} onChange={this.props.handleChangeDate} className="inputDate" type="text" name="name"/>
+                    <div className="how text-center">How are your {this.props.name} doing?</div>
+                    <div><label htmlFor="file-upload" className="custom-file-upload text-center">
+    <i className="fa fa-cloud-upload center"></i> Add Picture
 </label>
 <input id="file-upload" type="file" onChange={this.props.onImageChange.bind(this)} />
-<img id="target" src={this.props.image} alt=""/>
+<br/><img id="target" className="previewPic" width="45%" src={this.props.image} alt=""/>
 </div>
-
-<div>How is your {this.props.name} doing?  Record your observations here.</div>
-                <form onSubmit={this.props.handleSubmit}>
                     <label>
-                    Did you water the plant?
-                    <textarea value={this.props.valueWater} onChange={this.props.handleChangeWater} className="observationModal mx-auto"></textarea>
+                    Did you water the {this.props.name} today?
+                    <input value={this.props.valueWater} onChange={this.props.handleChangeWater} className="inputVal" type="text" name="name"/>
+                    </label>
+                    <label> 
+                    Did you fertilize the {this.props.name} today?
+                    <input value={this.props.valueFertilizer} onChange={this.props.handleChangeFertilizer} className="inputVal" type="text" name="name"/>
                     </label>
                     <label>
-                    Did you Fertilize the plant?
-                    <textarea value={this.props.valueFertilizer} onChange={this.props.handleChangeFertilizer} className="observationModal mx-auto"></textarea>
+                    Is the temperature outside today good for {this.props.name}?
+                    <input value={this.props.valueTemperature} onChange={this.props.handleChangeTemperature} className="inputVal" type="text" name="name"/>
                     </label>
-                    <input type="submit" value="Submit" onClick={this.closeModal}/>
+                    <label>
+                    Are the {this.props.name} getting enough sunlight?
+                    <input value={this.props.valueSunlight} onChange={this.props.handleChangeSunlight} className="inputVal" type="text" name="name"/>
+                    </label>
+                    <label>
+                    Write more about your {this.props.name} here.
+                    <textarea value={this.props.valueObservations} onChange={this.props.handleChangeObservations} className="observationModal"></textarea>
+                    </label>
+                    <input className="submitStyle" type="submit" value="Submit" onClick={this.closeModal}/>
                 </form>
                 </div>
                             </Modal>

@@ -121,11 +121,7 @@ class Plant extends Component {
 
                 
                      <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-
-                    <div className="box col mx-2">
-                       <PlantModal user={this.props.user} modalProp={this.state.modal} plantProp={this.state.plant} plantInfo={this.state.modalState} removePeople={this.removePeople}/>
-
-                    </div>        
+                       <PlantModal user={this.props.user} modalProp={this.state.modal} plantProp={this.state.plant} plantInfo={this.state.modalState} removePeople={this.removePeople}/>       
                     </Modal> 
             </div>
         );

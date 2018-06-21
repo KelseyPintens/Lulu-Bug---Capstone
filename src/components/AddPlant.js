@@ -31,9 +31,9 @@ class AddPlant extends Component {
                 <img src={addPlantIcon} alt="" width="100%"/>
             </div>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
-                    <h4 className="mt-5 text-center">Add Plant</h4>
+                    <h4 className="addPlantText mt-5 text-center">Add a plant to your garden! </h4>
                     <input className="searchPlant" type="text" name="name" placeholder="Search Plants"/>
-                        <PlantData handleChange={this.props.handleChange} className="plantData p-5" user={this.props.user}/>
+                    <PlantData handleChange={this.props.handleChange} className="plantData p-5" user={this.props.user}/>
                 </Modal>
             </div>
         );
