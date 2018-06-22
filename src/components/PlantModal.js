@@ -198,7 +198,7 @@ console.log("waterlow",this.props.plantInfo.waterlow)
                                 <div className="col journalOptions">
                                 <p className="dateLabel">Date: {x.valueDate}</p>
                                     <EditObservation user={this.props.user} number={this.props.plantInfo.number} index={{index}} x={{x}} handleSubmit={this.handleSubmit} name={this.props.plantInfo.name} value={this.state.value} handleChange={this.handleChange}/>
-                                    <div className="deleteButton" id={index} onClick={this.removePeople}>delete</div>
+                                    <div className="deleteButton" id={index} onClick={this.removePeople}>Delete</div>
                                 </div>
                             </div>
                             </div>        

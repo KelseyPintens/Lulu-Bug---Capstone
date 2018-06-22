@@ -133,7 +133,7 @@ class EditObservation extends Component {
 
         
                 <div>
-                <div className="editButton" onClick={this.toggle}>Edit</div>
+                <div className="editButton" onClick={this.toggle}>View</div>
 
                             <Modal id="observation" isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                             <div className="plantDetailScroll">
@@ -153,11 +153,11 @@ class EditObservation extends Component {
 </div>
 <div className="deleteImage" onClick={this.deleteImage}>Delete</div>
                   <label>
-                    Did you water the {this.props.name} today?
+                    Did you add water Today the {this.props.name} today?
                     <input value={this.state.valueWater} onChange={this.handleChangeWater} className="inputVal" type="text" name="name"/>
                     </label>
                     <label> 
-                    Did you fertilize the {this.props.name} today?
+                    Did you add fertilizer to the {this.props.name} today?
                     <input value={this.state.valueFertilizer} onChange={this.handleChangeFertilizer} className="inputVal" type="text" name="name"/>
                     </label>
                     <label>
