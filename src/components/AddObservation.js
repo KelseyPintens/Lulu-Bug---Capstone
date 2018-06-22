@@ -50,7 +50,7 @@ class AddObservation extends Component {
                     <input value={this.props.valueWater} onChange={this.props.handleChangeWater} className="inputVal" type="text" name="name"/>
                     </label>
                     <label> 
-                    Did you add fertilize to the {this.props.name} today?
+                    Did you add fertilizer to the {this.props.name} today?
                     <input value={this.props.valueFertilizer} onChange={this.props.handleChangeFertilizer} className="inputVal" type="text" name="name"/>
                     </label>
                     <label>

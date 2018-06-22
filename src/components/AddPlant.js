@@ -33,9 +33,9 @@ class AddPlant extends Component {
 
         // console.log("PLANT", h)
         return (
-            <div className="col-2 addPlant">
+            <div className="col-3 addPlant">
             <div onClick={this.toggle}>
-                <img src={addPlantIcon} alt="" width="100%"/>
+                <img src={addPlantIcon} alt="" width="75%"/>
             </div>
                 <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
                     <h4 className="addPlantText mt-5 text-center">Add a plant to your garden! </h4>
