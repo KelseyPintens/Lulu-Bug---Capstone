@@ -172,7 +172,7 @@ class EditObservation extends Component {
                     Write more about your {this.props.name} here.
                     <textarea value={this.state.valueObservations} onChange={this.handleChangeObservations} className="observationModal"></textarea>
                     </label>
-                    <input className="submitStyle" type="submit" value="Submit" onClick={this.closeModal}/>
+                    <input className="submitStyle" type="submit" value="Update" onClick={this.closeModal}/>
                 </form>
                 </div>
                             </Modal>
